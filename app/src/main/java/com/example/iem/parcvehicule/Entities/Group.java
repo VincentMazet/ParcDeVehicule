@@ -10,11 +10,11 @@ import java.util.List;
 public class Group {
 
     private String name;
-    private List<Brand> volkswagenGroup = new ArrayList<>();
+    private List<Brand> brandList = new ArrayList<>();
 
-    public Group(String name, List<Brand> volkswagenGroup){
+    public Group(String name, List<Brand> brandList){
         this.name = name;
-        this.volkswagenGroup = volkswagenGroup;
+        this.brandList = brandList;
     }
 
     public String getName() {
@@ -25,11 +25,11 @@ public class Group {
         this.name = name;
     }
 
-    public List<Brand> getVolkswagenGroup() {
-        return volkswagenGroup;
+    public List<Brand> getBrandList() {
+        return brandList;
     }
 
-    public void setVolkswagenGroup(List<Brand> volkswagenGroup) {
-        this.volkswagenGroup = volkswagenGroup;
+    public void setBrandList(List<Brand> brandList) {
+        this.brandList = brandList;
     }
 }
