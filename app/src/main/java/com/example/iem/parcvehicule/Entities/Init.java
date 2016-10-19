@@ -1,5 +1,13 @@
 package com.example.iem.parcvehicule.Entities;
 
+import android.content.res.Resources;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+
+import com.example.iem.parcvehicule.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +62,7 @@ public class Init {
         motoDucati.add(ducatiMonster);
         Motorcycle ducatiHyperStrada = new Motorcycle("100Ch","Rouge",2,motoWithoutOptions,105);
         motoDucati.add(ducatiHyperStrada);
+
 
         List<Brand> brandList = new ArrayList<>();
         Brand audi = new Brand("Audi", voituresAudi);
