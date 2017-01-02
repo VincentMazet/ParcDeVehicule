@@ -1,12 +1,12 @@
-package com.example.iem.parcvehicule.Entities;
+package com.example.iem.parcvehicule.Management;
 
-import android.content.res.Resources;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-
-import com.example.iem.parcvehicule.R;
+import com.example.iem.parcvehicule.Entities.Brand;
+import com.example.iem.parcvehicule.Entities.Car;
+import com.example.iem.parcvehicule.Entities.CarAccessories;
+import com.example.iem.parcvehicule.Entities.Group;
+import com.example.iem.parcvehicule.Entities.MotoAccessories;
+import com.example.iem.parcvehicule.Entities.Motorcycle;
+import com.example.iem.parcvehicule.Entities.Vehicle;
 
 import java.util.ArrayList;
 import java.util.List;

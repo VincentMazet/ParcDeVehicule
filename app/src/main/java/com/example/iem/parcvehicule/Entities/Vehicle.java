@@ -3,7 +3,7 @@ package com.example.iem.parcvehicule.Entities;
 /**
  * Created by iem on 19/10/2016.
  */
-abstract class Vehicle {
+public abstract class Vehicle {
 
     protected String motorType;
     protected String color;
