@@ -15,10 +15,22 @@ import java.util.List;
  * Created by iem on 19/10/2016.
  */
 public class Init {
-    private static Init ourInstance = new Init();
+    private volatile Init ourInstance;
 
-    public static Init getInstance() {
-        return ourInstance;
+    private Group vwGroup;
+
+    public Init getInstance() {
+     Init initLocal = ourInstance;
+
+        if(initLocal == null){
+            synchronized (this){
+                initLocal = ourInstance;
+                if(initLocal == null){
+                    ourInstance = initLocal = new Init();
+                }
+            }
+        }
+        return initLocal;
     }
 
     private Init() {
@@ -78,6 +90,6 @@ public class Init {
         Brand ducati = new Brand("Ducati", motoDucati);
         brandList.add(ducati);
 
-        Group volkswagen = new Group("VolkswagenGroup", brandList);
+       this.vwGroup = new Group("VolkswagenGroup", brandList);
     }
 }
