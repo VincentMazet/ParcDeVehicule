@@ -3,10 +3,12 @@ package com.example.iem.parcvehicule.Management;
 import com.example.iem.parcvehicule.Entities.Brand;
 import com.example.iem.parcvehicule.Entities.Car;
 import com.example.iem.parcvehicule.Entities.CarAccessories;
+import com.example.iem.parcvehicule.Entities.Colors;
 import com.example.iem.parcvehicule.Entities.Group;
 import com.example.iem.parcvehicule.Entities.MotoAccessories;
 import com.example.iem.parcvehicule.Entities.Motorcycle;
 import com.example.iem.parcvehicule.Entities.Vehicle;
+import com.example.iem.parcvehicule.Entities.VehicleType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,27 +43,31 @@ public class Init {
         carAllOptions.add(CarAccessories.OPEN_ROOF);
         carAllOptions.add(CarAccessories.SPORT_DECO);
 
-        List<Vehicle> voituresAudi = new ArrayList<>();
-        Car audiA1 = new Car("60Ch", "Rouge", 4, carWithoutOptions, 3);
-        Car audiA5 = new Car("235Ch", "jaune", 4, carAllOptions, 5);
-        voituresAudi.add(audiA1);
-        voituresAudi.add(audiA5);
+        AbstractFactory factory = AbstractFactory.getFactory(FactoryTypes.DAO);
 
-        List<Vehicle> voituresSeat = new ArrayList<>();
-        Car seatIbiza = new Car("145Ch", "Noire", 4, carWithoutOptions, 5);
-        voituresSeat.add(seatIbiza);
+        List<Vehicle> carsAudi = new ArrayList<>();
+        Car audiA1 = new Car("A1", "60Ch", Colors.RED, 4, carWithoutOptions, 3);
+        Car audiA5 = new Car("A5", "235Ch", Colors.GREEN, 4, carAllOptions, 5);
+        carsAudi.add(audiA1);
+        carsAudi.add(audiA5);
 
-        List<Vehicle> voituresBugatti = new ArrayList<>();
-        Car bugattiVeyron = new Car("473Ch", "Dorée", 4, carAllOptions, 3);
-        voituresBugatti.add(bugattiVeyron);
+        carsAudi.addAll(factory.buildVehicles(28, VehicleType.CAR, "R8", null));
 
-        List<Vehicle> voituresBentley = new ArrayList<>();
-        Car bentleySpeed6 = new Car("300Ch", "Grise", 4, carAllOptions, 5);
-        voituresBentley.add(bentleySpeed6);
+        List<Vehicle> carsSeat = new ArrayList<>();
+        Car seatIbiza = new Car("IBIZA", "145Ch", Colors.BLACK, 4, carWithoutOptions, 5);
+        carsSeat.add(seatIbiza);
 
-        List<Vehicle> voituresVW = new ArrayList<>();
-        Car vWGolf = new Car("120Ch", "Blanche", 4, carWithoutOptions, 3);
-        voituresVW.add(vWGolf);
+        List<Vehicle> carsBugatti = new ArrayList<>();
+        Car bugattiVeyron = new Car("Veyron", "473Ch", Colors.GREEN, 4, carAllOptions, 3);
+        carsBugatti.add(bugattiVeyron);
+
+        List<Vehicle> carsBentley = new ArrayList<>();
+        Car bentleySpeed6 = new Car("Speed 6", "300Ch", Colors.WHITE, 4, carAllOptions, 5);
+        carsBentley.add(bentleySpeed6);
+
+        List<Vehicle> carsVW = new ArrayList<>();
+        Car vWGolf = new Car("GOLF", "120Ch", Colors.GREY, 4, carWithoutOptions, 3);
+        carsVW.add(vWGolf);
 
         List<MotoAccessories> motoWithoutOptions = new ArrayList<>();
         List<MotoAccessories> motoAllOptions = new ArrayList<>();
@@ -70,26 +76,30 @@ public class Init {
         motoAllOptions.add(MotoAccessories.SPORT_TIRES);
 
         List<Vehicle> motoDucati = new ArrayList<>();
-        Motorcycle ducatiMonster = new Motorcycle("150Ch","Rouge",2, motoAllOptions, 100);
+        Motorcycle ducatiMonster = new Motorcycle("Monstro", "150Ch",Colors.RED,2, motoAllOptions, 100);
         motoDucati.add(ducatiMonster);
-        Motorcycle ducatiHyperStrada = new Motorcycle("100Ch","Rouge",2,motoWithoutOptions,105);
+        Motorcycle ducatiHyperStrada = new Motorcycle("HyperStrada", "100Ch",Colors.RED,2,motoWithoutOptions,105);
         motoDucati.add(ducatiHyperStrada);
+        motoDucati.addAll(factory.buildVehicles(8, VehicleType.MOTORCYCLE, "1199 Superleggera ", Colors.RED));
+
 
 
         List<Brand> brandList = new ArrayList<>();
-        Brand audi = new Brand("Audi", voituresAudi);
+        Brand audi = new Brand("Audi", carsAudi);
         brandList.add(audi);
-        Brand seat = new Brand("Seat", voituresSeat);
+        Brand seat = new Brand("Seat", carsSeat);
         brandList.add(seat);
-        Brand bugatti = new Brand("Bugatti", voituresBugatti);
+        Brand bugatti = new Brand("Bugatti", carsBugatti);
         brandList.add(bugatti);
-        Brand bentley = new Brand("Bentley", voituresBentley);
+        Brand bentley = new Brand("Bentley", carsBentley);
         brandList.add(bentley);
-        Brand vw = new Brand("Volkswagen", voituresVW);
+        Brand vw = new Brand("Volkswagen", carsVW);
         brandList.add(vw);
         Brand ducati = new Brand("Ducati", motoDucati);
         brandList.add(ducati);
 
-       this.vwGroup = new Group("VolkswagenGroup", brandList);
+        this.vwGroup = new Group("VolkswagenGroup", brandList);
+
+
     }
 }

@@ -12,7 +12,8 @@ public class Car extends Vehicle {
     private List<CarAccessories> carAccessoriesList = new ArrayList<>();
     private int nbDoors;
 
-    public Car(String motorType, String color, int nbWheel, List<CarAccessories> carAccessoriesList, int nbDoors){
+    public Car(String name, String motorType, Colors color, int nbWheel, List<CarAccessories> carAccessoriesList, int nbDoors){
+        this.name = name;
         this.motorType = motorType;
         this.color = color;
         this.nbWheel = nbWheel;
