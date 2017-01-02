@@ -12,7 +12,8 @@ public class Motorcycle extends Vehicle {
     private List<MotoAccessories> motoAccessoriesList = new ArrayList<>();
     private int height;
 
-    public Motorcycle(String motorType, String color, int nbWheel, List<MotoAccessories> motoAccessoriesList, int height){
+    public Motorcycle(String name, String motorType, Colors color, int nbWheel, List<MotoAccessories> motoAccessoriesList, int height){
+        this.name = name;
         this.motorType = motorType;
         this.color = color;
         this.nbWheel = nbWheel;

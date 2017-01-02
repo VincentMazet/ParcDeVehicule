@@ -3,11 +3,17 @@ package com.example.iem.parcvehicule.Entities;
 /**
  * Created by iem on 19/10/2016.
  */
-abstract class Vehicle {
+public abstract class Vehicle {
+    //TODO enum for type // Color // nbWheel
 
+    protected String name;
     protected String motorType;
-    protected String color;
+    protected Colors color;
     protected int nbWheel;
+
+    protected String getName(){
+        return  name;
+    }
 
     protected String getMotorType(){
         return  motorType;
@@ -17,11 +23,11 @@ abstract class Vehicle {
         this.motorType = motorType;
     }
 
-    protected  String getColor(){
+    protected  Colors getColor(){
         return color;
     }
 
-    protected void setColor(String color) {
+    protected void setColor(Colors color) {
         this.color = color;
     }
 
